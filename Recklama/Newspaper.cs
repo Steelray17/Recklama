@@ -22,8 +22,7 @@ namespace Recklama
     
         public int id { get; set; }
         public string NameNewspaper { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
+        public Nullable<long> Phone { get; set; }
         public Nullable<long> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

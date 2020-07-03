@@ -48,38 +48,48 @@
             // 
             // buttonOpenOrg
             // 
+            this.buttonOpenOrg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(214)))));
+            this.buttonOpenOrg.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonOpenOrg.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonOpenOrg.Location = new System.Drawing.Point(397, 12);
             this.buttonOpenOrg.Name = "buttonOpenOrg";
             this.buttonOpenOrg.Size = new System.Drawing.Size(255, 48);
             this.buttonOpenOrg.TabIndex = 1;
             this.buttonOpenOrg.Text = "Организация";
-            this.buttonOpenOrg.UseVisualStyleBackColor = true;
+            this.buttonOpenOrg.UseVisualStyleBackColor = false;
             this.buttonOpenOrg.Click += new System.EventHandler(this.buttonOpenOrg_Click);
             // 
             // buttonOpenGazeta
             // 
+            this.buttonOpenGazeta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(214)))));
+            this.buttonOpenGazeta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonOpenGazeta.Font = new System.Drawing.Font("Calibri", 12F);
             this.buttonOpenGazeta.Location = new System.Drawing.Point(397, 66);
             this.buttonOpenGazeta.Name = "buttonOpenGazeta";
             this.buttonOpenGazeta.Size = new System.Drawing.Size(255, 48);
             this.buttonOpenGazeta.TabIndex = 2;
             this.buttonOpenGazeta.Text = "Газета";
-            this.buttonOpenGazeta.UseVisualStyleBackColor = true;
+            this.buttonOpenGazeta.UseVisualStyleBackColor = false;
             this.buttonOpenGazeta.Click += new System.EventHandler(this.buttonOpenGazeta_Click);
             // 
             // buttonOpenRek
             // 
+            this.buttonOpenRek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(214)))));
+            this.buttonOpenRek.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonOpenRek.Font = new System.Drawing.Font("Calibri", 12F);
             this.buttonOpenRek.Location = new System.Drawing.Point(397, 120);
             this.buttonOpenRek.Name = "buttonOpenRek";
             this.buttonOpenRek.Size = new System.Drawing.Size(255, 48);
             this.buttonOpenRek.TabIndex = 3;
             this.buttonOpenRek.Text = "Реклама";
-            this.buttonOpenRek.UseVisualStyleBackColor = true;
+            this.buttonOpenRek.UseVisualStyleBackColor = false;
             this.buttonOpenRek.Click += new System.EventHandler(this.buttonOpenRek_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
             this.ClientSize = new System.Drawing.Size(655, 171);
             this.Controls.Add(this.buttonOpenRek);
             this.Controls.Add(this.buttonOpenGazeta);

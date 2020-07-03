@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGazeta));
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
@@ -37,57 +38,65 @@
             this.listViewGazeta = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(15, 25);
+            this.textBoxName.Font = new System.Drawing.Font("Calibri", 12F);
+            this.textBoxName.Location = new System.Drawing.Point(12, 110);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(153, 20);
+            this.textBoxName.Size = new System.Drawing.Size(153, 27);
             this.textBoxName.TabIndex = 4;
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(15, 64);
+            this.textBoxPhone.Font = new System.Drawing.Font("Calibri", 12F);
+            this.textBoxPhone.Location = new System.Drawing.Point(12, 162);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(153, 20);
+            this.textBoxPhone.Size = new System.Drawing.Size(153, 27);
             this.textBoxPhone.TabIndex = 5;
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(15, 103);
+            this.textBoxPrice.Font = new System.Drawing.Font("Calibri", 12F);
+            this.textBoxPrice.Location = new System.Drawing.Point(12, 214);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(153, 20);
+            this.textBoxPrice.Size = new System.Drawing.Size(153, 27);
             this.textBoxPrice.TabIndex = 6;
             // 
             // labelGaz
             // 
             this.labelGaz.AutoSize = true;
-            this.labelGaz.Location = new System.Drawing.Point(12, 9);
+            this.labelGaz.Font = new System.Drawing.Font("Calibri", 12F);
+            this.labelGaz.Location = new System.Drawing.Point(8, 88);
             this.labelGaz.Name = "labelGaz";
-            this.labelGaz.Size = new System.Drawing.Size(96, 13);
+            this.labelGaz.Size = new System.Drawing.Size(126, 19);
             this.labelGaz.TabIndex = 7;
             this.labelGaz.Text = "Название газеты";
             // 
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(12, 87);
+            this.labelPrice.Font = new System.Drawing.Font("Calibri", 12F);
+            this.labelPrice.Location = new System.Drawing.Point(8, 192);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(80, 13);
+            this.labelPrice.Size = new System.Drawing.Size(106, 19);
             this.labelPrice.TabIndex = 8;
             this.labelPrice.Text = "Цена реклама";
             // 
             // labelNumber
             // 
             this.labelNumber.AutoSize = true;
-            this.labelNumber.Location = new System.Drawing.Point(12, 48);
+            this.labelNumber.Font = new System.Drawing.Font("Calibri", 12F);
+            this.labelNumber.Location = new System.Drawing.Point(8, 140);
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(93, 13);
+            this.labelNumber.Size = new System.Drawing.Size(123, 19);
             this.labelNumber.TabIndex = 9;
             this.labelNumber.Text = "Номер телефона";
             // 
@@ -97,11 +106,11 @@
             this.columnHeader10,
             this.columnHeader12,
             this.columnHeader1});
-            this.listViewGazeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.listViewGazeta.Font = new System.Drawing.Font("Calibri", 12F);
             this.listViewGazeta.FullRowSelect = true;
             this.listViewGazeta.GridLines = true;
             this.listViewGazeta.HideSelection = false;
-            this.listViewGazeta.Location = new System.Drawing.Point(188, 9);
+            this.listViewGazeta.Location = new System.Drawing.Point(188, 88);
             this.listViewGazeta.Margin = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.listViewGazeta.Name = "listViewGazeta";
             this.listViewGazeta.Size = new System.Drawing.Size(425, 189);
@@ -118,54 +127,69 @@
             // 
             this.columnHeader12.Text = "Номер телефона";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Цена";
+            // 
             // buttonDel
             // 
-            this.buttonDel.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.buttonDel.Location = new System.Drawing.Point(496, 203);
+            this.buttonDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(214)))));
+            this.buttonDel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDel.Font = new System.Drawing.Font("Calibri", 12F);
+            this.buttonDel.Location = new System.Drawing.Point(496, 282);
             this.buttonDel.Margin = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(117, 36);
             this.buttonDel.TabIndex = 28;
             this.buttonDel.Text = "Удалить";
-            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.UseVisualStyleBackColor = false;
             this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonEdit
             // 
-            this.buttonEdit.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.buttonEdit.Location = new System.Drawing.Point(372, 203);
+            this.buttonEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(214)))));
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEdit.Font = new System.Drawing.Font("Calibri", 12F);
+            this.buttonEdit.Location = new System.Drawing.Point(372, 282);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(117, 36);
             this.buttonEdit.TabIndex = 27;
             this.buttonEdit.Text = "Изменить";
-            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.UseVisualStyleBackColor = false;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.buttonAdd.Location = new System.Drawing.Point(249, 203);
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(214)))));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAdd.Font = new System.Drawing.Font("Calibri", 12F);
+            this.buttonAdd.Location = new System.Drawing.Point(249, 282);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(17, 15, 17, 15);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(117, 36);
             this.buttonAdd.TabIndex = 26;
             this.buttonAdd.Text = "Создать";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // columnHeader1
+            // pictureBox1
             // 
-            this.columnHeader1.Text = "Цена";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(601, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
             // 
             // FormGazeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 243);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(202)))));
+            this.ClientSize = new System.Drawing.Size(618, 323);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonAdd);
@@ -176,8 +200,11 @@
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormGazeta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Газета";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +225,6 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -26,7 +26,7 @@ namespace Recklama
                 ListViewItem item = new ListViewItem(new string[]
                 {
                     gazSet.NameNewspaper,
-                    gazSet.Phone,
+                    gazSet.Phone.ToString(),
                     gazSet.Price.ToString()
                 });
                 item.Tag = gazSet;
@@ -41,7 +41,7 @@ namespace Recklama
             {
                 Newspaper gazSet = listViewGazeta.SelectedItems[0].Tag as Newspaper;
                 textBoxName.Text = gazSet.NameNewspaper;
-                textBoxPhone.Text = gazSet.Phone;
+                textBoxPhone.Text = gazSet.Phone.ToString();
                 textBoxPrice.Text = gazSet.Price.ToString();
             }
             else
@@ -54,13 +54,20 @@ namespace Recklama
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Newspaper gazSet = new Newspaper();
-            gazSet.NameNewspaper = textBoxName.Text;
-            gazSet.Phone = textBoxPhone.Text;
-            gazSet.Price = Convert.ToInt32(textBoxPrice.Text);
-            Program.recklama.Newspaper.Add(gazSet);
-            Program.recklama.SaveChanges();
-            ShowGaz();
+            try
+            {
+                Newspaper gazSet = new Newspaper();
+                gazSet.NameNewspaper = textBoxName.Text;
+                gazSet.Phone = Convert.ToInt32(textBoxPhone.Text);
+                gazSet.Price = Convert.ToInt32(textBoxPrice.Text);
+                Program.recklama.Newspaper.Add(gazSet);
+                Program.recklama.SaveChanges();
+                ShowGaz();
+            }
+            catch
+            {
+                MessageBox.Show("Введено не правельное значение", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -69,7 +76,7 @@ namespace Recklama
             {
                 Newspaper gazSet = listViewGazeta.SelectedItems[0].Tag as Newspaper;
                 gazSet.NameNewspaper = textBoxName.Text;
-                gazSet.Phone = textBoxPhone.Text;
+                gazSet.Phone = Convert.ToInt32(textBoxPhone.Text);
                 gazSet.Price = Convert.ToInt32(textBoxPrice.Text);
                 Program.recklama.SaveChanges();
                 ShowGaz();

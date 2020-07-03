@@ -27,7 +27,7 @@ namespace Recklama
                 {
                     orgSet.NameOrganization,
                     orgSet.Address,
-                    orgSet.Phone
+                    orgSet.Phone.ToString()
                 });
                 item.Tag = orgSet;
                 listViewOrg.Items.Add(item);
@@ -42,7 +42,7 @@ namespace Recklama
                 Organization orgSet = listViewOrg.SelectedItems[0].Tag as Organization;
                 textBoxOrg.Text = orgSet.NameOrganization;
                 textBoxAddress.Text = orgSet.Address;
-                textBoxNumber.Text = orgSet.Phone;
+                textBoxNumber.Text = orgSet.Phone.ToString();
             }
             else
             {
@@ -54,13 +54,20 @@ namespace Recklama
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            Organization orgSet = new Organization();
-            orgSet.NameOrganization = textBoxOrg.Text;
-            orgSet.Address = textBoxAddress.Text;
-            orgSet.Phone = textBoxNumber.Text;
-            Program.recklama.Organization.Add(orgSet);
-            Program.recklama.SaveChanges();
-            ShowOrg();
+            try
+            {
+                Organization orgSet = new Organization();
+                orgSet.NameOrganization = textBoxOrg.Text;
+                orgSet.Address = textBoxAddress.Text;
+                orgSet.Phone = Convert.ToInt32(textBoxNumber.Text);
+                Program.recklama.Organization.Add(orgSet);
+                Program.recklama.SaveChanges();
+                ShowOrg();
+            }
+            catch
+            {
+                MessageBox.Show("Введено не правельное значение", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -70,7 +77,7 @@ namespace Recklama
                 Organization orgSet = listViewOrg.SelectedItems[0].Tag as Organization;
                 orgSet.NameOrganization = textBoxOrg.Text;
                 orgSet.Address = textBoxAddress.Text;
-                orgSet.Phone = textBoxNumber.Text;
+                orgSet.Phone = Convert.ToInt32(textBoxNumber.Text);
                 Program.recklama.SaveChanges();
                 ShowOrg();
             }

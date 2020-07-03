@@ -148,19 +148,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModelRecklama.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelRecklama.Context.cs</LastGenOutput>
       <DependentUpon>ModelRecklama.edmx</DependentUpon>
+      <LastGenOutput>ModelRecklama.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelRecklama.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelRecklama.edmx</DependentUpon>
       <LastGenOutput>ModelRecklama.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

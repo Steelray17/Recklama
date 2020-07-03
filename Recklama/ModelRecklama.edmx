@@ -11,8 +11,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameNewspaper" Type="nvarchar(max)" />
-          <Property Name="Phone" Type="nvarchar(max)" />
-          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="bigint" />
           <Property Name="Price" Type="bigint" />
         </EntityType>
         <EntityType Name="Organization">
@@ -22,7 +21,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameOrganization" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar(max)" />
-          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="bigint" />
         </EntityType>
         <EntityType Name="Recklama">
           <Key>
@@ -82,8 +81,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameNewspaper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int64" />
           <Property Name="Price" Type="Int64" />
           <NavigationProperty Name="Recklama" Relationship="Self.FK_Recklama_Newspaper" FromRole="Newspaper" ToRole="Recklama" />
         </EntityType>
@@ -94,7 +92,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameOrganization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int64" />
           <NavigationProperty Name="Recklama" Relationship="Self.FK_Recklama_Organization" FromRole="Organization" ToRole="Recklama" />
         </EntityType>
         <EntityType Name="Recklama">
@@ -158,7 +156,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="NameNewspaper" ColumnName="NameNewspaper" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
