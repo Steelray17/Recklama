@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище RecklamaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Newspaper">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameNewspaper" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Price" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOrganization" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Recklama">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idOrganization" Type="int" />
+          <Property Name="idNewspaper" Type="int" />
+          <Property Name="Number" Type="bigint" />
+          <Property Name="Volume" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_Recklama_Newspaper">
+          <End Role="Newspaper" Type="Self.Newspaper" Multiplicity="0..1" />
+          <End Role="Recklama" Type="Self.Recklama" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Newspaper">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recklama">
+              <PropertyRef Name="idNewspaper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recklama_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Recklama" Type="Self.Recklama" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recklama">
+              <PropertyRef Name="idOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище RecklamaModelContainer">
+          <EntitySet Name="Newspaper" EntityType="Self.Newspaper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recklama" EntityType="Self.Recklama" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Recklama_Newspaper" Association="Self.FK_Recklama_Newspaper">
+            <End Role="Newspaper" EntitySet="Newspaper" />
+            <End Role="Recklama" EntitySet="Recklama" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recklama_Organization" Association="Self.FK_Recklama_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Recklama" EntitySet="Recklama" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecklamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Newspaper">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameNewspaper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int64" />
+          <NavigationProperty Name="Recklama" Relationship="Self.FK_Recklama_Newspaper" FromRole="Newspaper" ToRole="Recklama" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOrganization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Recklama" Relationship="Self.FK_Recklama_Organization" FromRole="Organization" ToRole="Recklama" />
+        </EntityType>
+        <EntityType Name="Recklama">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idOrganization" Type="Int32" />
+          <Property Name="idNewspaper" Type="Int32" />
+          <Property Name="Number" Type="Int64" />
+          <Property Name="Volume" Type="Int64" />
+          <NavigationProperty Name="Newspaper" Relationship="Self.FK_Recklama_Newspaper" FromRole="Recklama" ToRole="Newspaper" />
+          <NavigationProperty Name="Organization" Relationship="Self.FK_Recklama_Organization" FromRole="Recklama" ToRole="Organization" />
+        </EntityType>
+        <Association Name="FK_Recklama_Newspaper">
+          <End Role="Newspaper" Type="Self.Newspaper" Multiplicity="0..1" />
+          <End Role="Recklama" Type="Self.Recklama" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Newspaper">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recklama">
+              <PropertyRef Name="idNewspaper" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recklama_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Recklama" Type="Self.Recklama" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recklama">
+              <PropertyRef Name="idOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RecklamaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Newspaper" EntityType="Self.Newspaper" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" />
+          <EntitySet Name="Recklama" EntityType="Self.Recklama" />
+          <AssociationSet Name="FK_Recklama_Newspaper" Association="Self.FK_Recklama_Newspaper">
+            <End Role="Newspaper" EntitySet="Newspaper" />
+            <End Role="Recklama" EntitySet="Recklama" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recklama_Organization" Association="Self.FK_Recklama_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Recklama" EntitySet="Recklama" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RecklamaModelContainer" CdmEntityContainer="RecklamaEntities">
+          <EntitySetMapping Name="Newspaper">
+            <EntityTypeMapping TypeName="RecklamaModel.Newspaper">
+              <MappingFragment StoreEntitySet="Newspaper">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NameNewspaper" ColumnName="NameNewspaper" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization">
+            <EntityTypeMapping TypeName="RecklamaModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NameOrganization" ColumnName="NameOrganization" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recklama">
+            <EntityTypeMapping TypeName="RecklamaModel.Recklama">
+              <MappingFragment StoreEntitySet="Recklama">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idOrganization" ColumnName="idOrganization" />
+                <ScalarProperty Name="idNewspaper" ColumnName="idNewspaper" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
